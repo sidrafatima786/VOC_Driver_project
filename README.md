@@ -1,84 +1,71 @@
-# VOC_Driver_project
-Driver Drowsiness Detection System 🚗💤 A real-time computer vision-based safety tool that detects driver drowsiness using webcam feed, facial landmarks, and Eye Aspect Ratio (EAR). Alerts and logs incidents to help prevent accidents. Built with Python, OpenCV, and MediaPipe.
+# Driver Drowsiness Detection System
 
-# 🚗 Driver Drowsiness Detection System
+An advanced real-time driver drowsiness detection system using computer vision and deep learning. The system monitors driver's eyes and alerts when signs of drowsiness are detected.
 
-A real-time computer vision-based safety tool that detects driver drowsiness or sleep using facial landmark analysis. It uses Eye Aspect Ratio (EAR) to monitor eye closure and triggers alerts with logging and optional image capture to help prevent accidents.
+## Features
 
----
+- Real-time face and eye detection
+- Drowsiness and sleep state detection
+- Audio alerts for drowsy and sleeping states
+- Incident logging and screenshot capture
+- Eye Aspect Ratio (EAR) monitoring
+- Configurable detection parameters
+- Error handling and graceful cleanup
 
-## 📌 Project Description
+## Requirements
 
-The Driver Drowsiness Detection System monitors the driver’s eyes via webcam feed using MediaPipe Face Mesh and calculates the Eye Aspect Ratio (EAR) to detect signs of fatigue or sleep. If drowsiness is detected, it logs the incident and optionally captures the frame for review. The system is lightweight and suitable for integration into real-world vehicular safety applications.
+- Python 3.6+
+- OpenCV (cv2)
+- dlib
+- numpy
+- imutils
+- pygame
 
----
+Install the required packages using:
 
-## 🧠 Key Concepts
+```bash
+pip install -r requirements.txt
+```
 
-- **Facial Landmark Detection** using MediaPipe
-- **Eye Aspect Ratio (EAR)** for detecting eye closure
-- **Real-time Frame Analysis** using OpenCV
-- **Logging** and **Image Saving** for incidents
-- **Status Classification**: Active, Drowsy, Sleeping
-- **Extensible Audio Alerts** with Pygame (optional)
+You'll also need to download the face landmark predictor file:
+- Download [shape_predictor_68_face_landmarks.dat](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2)
+- Extract and place it in the project directory
 
----
+## Installation
 
-## 🛠️ Technologies Used
+1. Clone this repository
+2. Install the required packages
+3. Download the face landmark predictor file
+4. Add an audio file named `alarm.wav` for alert sounds
 
-- `Python 3`
-- `OpenCV`
-- `MediaPipe`
-- `NumPy`
-- `Datetime` and `Logging`
-- `Pygame` (optional, for alarm sounds)
+## Usage
 
----
+Run the program:
 
-## 🎯 Features
-
-- 👁️ **EAR Calculation** for both eyes
-- 🧠 Differentiates between **Drowsy** and **Sleeping** states
-- 📸 Saves screenshots of drowsy/sleep incidents
-- 📄 Logs incident data to `drowsiness_log.txt`
-- 🛎️ (Optional) Audio alerts using `pygame`
-- 🖼️ Displays driver status and EAR in real-time
-
----
-
-## 🖥️ How to Run
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/sidrafatima786/VOC_Driver_project.git
-
-	2.	Install dependencies:
-pip install opencv-python mediapipe numpy pygame
-
-	3.	Run the main script:
+```bash
 python driver_drowsiness.py
+```
 
-Make sure your webcam is connected and accessible by your system.
+- Press 'ESC' to exit the program
+- The system will automatically create an 'incidents' directory to store screenshots
+- A log file 'drowsiness_log.txt' will be created to track all events
 
-📂 Project Structure
+## How it Works
 
-Driver-Drowsiness-Detection/
-│
-├── driver_drowsiness.py         # Main script for detection logic
-├── drowsiness_log.txt           # Log file (generated after running)
-├── incidents/                   # Saved frames of drowsy/sleep events
-└── README.md                    # Project documentation
+The system uses:
+1. Face detection to locate the driver's face
+2. Facial landmark detection to locate the eyes
+3. Eye Aspect Ratio (EAR) calculation to determine eye state
+4. Threshold-based detection for drowsiness and sleep states
 
-📸 Sample Output
-	•	Real-time webcam display showing:
-	•	EAR value
-	•	Driver Status: Active / Drowsy / Sleeping
-	•	Logged and saved images when fatigue is detected
+## Configuration
 
-⸻
+You can modify the detection parameters in the CONFIG dictionary:
+- EYE_AR_THRESH: Threshold for eye aspect ratio
+- EYE_AR_CONSEC_FRAMES: Number of consecutive frames for state change
+- DROWSY_TIME: Time threshold for drowsy state
+- SLEEP_TIME: Time threshold for sleep state
 
-🙋‍♂️ Author
+## Contributing
 
-Sidra Mustafa
-Intern @ Vault of Code — June 2025
-LinkedIn • GitHub
+Feel free to submit issues and enhancement requests!
