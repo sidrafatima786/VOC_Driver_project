@@ -50,7 +50,7 @@ The Driver Drowsiness Detection System monitors the driver’s eyes via webcam f
 
 1. Clone the repository:
    ```bash
-   git clone 
+   git clone https://github.com/sidrafatima786/VOC_Driver_project.git
 
 	2.	Install dependencies:
 pip install opencv-python mediapipe numpy pygame
